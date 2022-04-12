@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController extends BaseController {
 	
-	@RequestMapping("/")
+	@RequestMapping(value={"/","/trang-chu"})
 	public ModelAndView Index()
 	{
 //		ModelAndView mv = new ModelAndView("user/index");

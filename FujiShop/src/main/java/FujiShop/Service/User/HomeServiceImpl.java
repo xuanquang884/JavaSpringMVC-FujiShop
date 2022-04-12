@@ -18,21 +18,20 @@ public class HomeServiceImpl implements IHomeService {
 	@Autowired
 	private SlidesDao slidesDao;
 	public List<Slides> GetDataSlides() {
-		// TODO Auto-generated method stub
 		return slidesDao.GetDataSlides();
 	}
 
 	@Autowired
 	private LoaiSanPhamDao loaisp;
 	public List<LoaiSanPham> GetDataLoaiSanPham() {
-		// TODO Auto-generated method stub
+		
 		return loaisp.GetDataLoaiSanPham();
 	}
 	
 	@Autowired
 	private MenusDao menudao;
 	public List<Menus> GetDataMenus() {
-		// TODO Auto-generated method stub
+		
 		return menudao.GetDataMenus();
 	}
 	@Autowired
@@ -46,8 +45,9 @@ public class HomeServiceImpl implements IHomeService {
 		return listSP;
 	}
 	public List<ProductsDto> GetDataSanPham() {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
+
 
 }

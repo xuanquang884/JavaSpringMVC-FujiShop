@@ -10,7 +10,7 @@
                             <div class="col-md-6 col-lg-3 mb-md-30px mb-lm-30px">
                                 <div class="single-wedge">
                                     <div class="footer-logo">
-                                        <a href="index.html"><img src="<c:url value="/assets/StyleUser/images/logo/footer-logo.png"/>" alt=""></a>
+                                        <a href="index.html"><img style="height: 90px ;" src="<c:url value="/assets/StyleUser/images/logo/logo (1).png"/>" alt=""></a>
                                     </div>
                                     <p class="about-text">Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore
                                     </p>

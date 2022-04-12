@@ -23,12 +23,12 @@ public class CategoryController extends BaseController{
 	public ModelAndView Sanpham(@PathVariable String id)
 	{
 		_mvShare.addObject("loaisanpham", _homeService.GetDataLoaiSanPham());
-		int totalData = categoryService.GetDataAllSanPhamByID(Integer.parseInt(id)).size();
+		int totalData = categoryService.GetDataAllProductsByID(Integer.parseInt(id)).size();
 		PaginatesDto paginateInfo = paginatesService.GetInforPaginates(totalData, totalProductsPage, 1);
 		_mvShare.addObject("idCategory", id);
 		_mvShare.addObject("paginateInfo", paginateInfo);
-		_mvShare.addObject("productsPaginates", categoryService.GetDataSanPhamPaginates(Integer.parseInt(id), paginateInfo.getStart(),totalProductsPage));
-		_mvShare.setViewName("user/Sanpham/loaiSP");
+		_mvShare.addObject("productsPaginates", categoryService.GetDataProductsPaginates(Integer.parseInt(id), paginateInfo.getStart(),totalProductsPage));
+		_mvShare.setViewName("user/Products/categorys");
 		return _mvShare;
 	}
 	
@@ -36,12 +36,12 @@ public class CategoryController extends BaseController{
 	public ModelAndView Sanpham(@PathVariable String id,@PathVariable int currentPage)
 	{
 		_mvShare.addObject("loaisanpham", _homeService.GetDataLoaiSanPham());
-		int totalData = categoryService.GetDataAllSanPhamByID(Integer.parseInt(id)).size();
+		int totalData = categoryService.GetDataAllProductsByID(Integer.parseInt(id)).size();
 		PaginatesDto paginateInfo = paginatesService.GetInforPaginates(totalData, totalProductsPage, currentPage);
 		_mvShare.addObject("idCategory", id);
 		_mvShare.addObject("paginateInfo", paginateInfo);
-		_mvShare.addObject("productsPaginates", categoryService.GetDataSanPhamPaginates(Integer.parseInt(id),paginateInfo.getStart(),totalProductsPage));
-		_mvShare.setViewName("user/Sanpham/loaiSP");
+		_mvShare.addObject("productsPaginates", categoryService.GetDataProductsPaginates(Integer.parseInt(id),paginateInfo.getStart(),totalProductsPage));
+		_mvShare.setViewName("user/Products/categorys");
 		return _mvShare;
 	}
 	

@@ -49,7 +49,13 @@
                                 <ul>
                                     <li><a href="tel:0123456789"><i class="fa fa-phone"></i> +012 3456 789</a></li>
                                     <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> demo@example.com</a></li>
-                                    <li><a href="my-account.html"><i class="fa fa-user"></i> Đăng Nhập</a></li>
+                                     <c:if test="${empty LoginInfor }">
+                                    	<li><a href='<c:url value="dang-ky"/>'><i class="fa fa-user"></i> Đăng Nhập</a></li>
+                                    </c:if>
+                                    <c:if test="${ not empty LoginInfor }">
+                                    	<li><a href='<c:url value="myAccount"/>'><i class="fa fa-user"></i>${ LoginInfor.display_name}</a></li>
+                                    	<li><a href='<c:url value="dang-xuat"/>'><i class="fa fa-sign-out"></i> Đăng Xuât</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -74,6 +80,7 @@
     <script src="<c:url value="/assets/StyleUser/js/plugins/mailchimp-ajax.js"/>"></script>
     
     <script src="<c:url value="/assets/StyleUser/js/main.js"/>"></script>
+    <decorator:getProperty property="page.script"></decorator:getProperty>
 	</div>
 </body>
 </html>

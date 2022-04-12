@@ -12,16 +12,13 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Autowired
 	private ProductsDao sanphamDao;
 	
-	public List<ProductsDto> GetDataSanPhamPaginates(int id, int start, int totalPage)
+	public List<ProductsDto> GetDataProductsPaginates(int id, int start, int totalPage)
 	{
-		List<ProductsDto> sanpham = sanphamDao.GetDataSanPhamPaginates(id, start, totalPage);
+		List<ProductsDto> sanpham = sanphamDao.GetDataProductsPaginates(id, start, totalPage);
 		return sanpham;
 	}
 
-	public List<ProductsDto> GetDataAllSanPhamByID(int id) {
-		return sanphamDao.GetDataAllSanPhamByID(id);
+	public List<ProductsDto> GetDataAllProductsByID(int id) {
+		return sanphamDao.GetDataAllProductsByID(id);
 	}
-
-	
-	
 }

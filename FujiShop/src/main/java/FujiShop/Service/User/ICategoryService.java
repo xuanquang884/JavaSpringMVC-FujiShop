@@ -9,7 +9,7 @@ import FujiShop.Dto.ProductsDto;
 public interface ICategoryService {
 	
 	
-	public List<ProductsDto> GetDataAllSanPhamByID(int id);
+	public List<ProductsDto> GetDataAllProductsByID(int id);
 	
-	public List<ProductsDto> GetDataSanPhamPaginates( int id,int start, int end);
+	public List<ProductsDto> GetDataProductsPaginates( int id,int start, int end);
 }

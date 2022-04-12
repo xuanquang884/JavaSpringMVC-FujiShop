@@ -6,5 +6,6 @@ import FujiShop.Dto.PaginatesDto;
 
 @Service
 public interface IPaginatesService {
+	
 	public PaginatesDto GetInforPaginates( int totalData,int limit, int currentPage);
 }

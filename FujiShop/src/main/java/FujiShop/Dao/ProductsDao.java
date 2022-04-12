@@ -27,16 +27,16 @@ public class ProductsDao extends BaseDao {
 		sql.append(", p.sp_noibat ");
 		sql.append(", p.sp_new ");
 		sql.append(", p.ct_sp ");
-		sql.append(", c.id as id_anh ");
+		sql.append(", c.id as id_color ");
 		sql.append(", c.img ");
+		sql.append(", c.name_color ");
 		sql.append(", p.ngaytao_sp ");
 		sql.append(", p.ngaysua_sp ");
 		sql.append("FROM ");
 		sql.append("sanpham AS p ");
 		sql.append("INNER JOIN ");
-		sql.append("anh AS c ");
+		sql.append("color AS c ");
 		sql.append("ON p.id = c.id_sp ");
-		
 		return sql;
 	}
 	
@@ -56,7 +56,7 @@ public class ProductsDao extends BaseDao {
 		sql.append(" GROUP BY p.id, c.id_sp ");
 		sql.append(" ORDER BY RAND() ");
 		if (sp_New) {
-			sql.append(" LIMIT 4 ");
+			sql.append(" LIMIT 2 ");
 		}
 		if (sp_Noibat) {
 			sql.append(" LIMIT 16 ");
@@ -67,8 +67,8 @@ public class ProductsDao extends BaseDao {
 	public StringBuffer SqlProductsByID(int id)
 	{ 
 		StringBuffer  sql = SqlString();
-		sql.append("WHERE 1=1 ");
-		sql.append(" AND p.id_loaisp =  "+ id+" ");
+		sql.append("WHERE 1 = 1 ");
+		sql.append(" AND p.id_loaisp =  "+ id +" ");
 		return sql;
 	}
 	
@@ -94,7 +94,7 @@ public class ProductsDao extends BaseDao {
 		return listsanpham;
 	}
 	
-	public List<ProductsDto> GetDataAllSanPhamByID(int id)
+	public List<ProductsDto> GetDataAllProductsByID(int id)
 	{
 		
 		String sql = SqlProductsByID(id).toString();
@@ -103,7 +103,7 @@ public class ProductsDao extends BaseDao {
 		return listsanpham;
 	}
 	
-	public List<ProductsDto> GetDataSanPhamPaginates(int id, int start, int totalPage)
+	public List<ProductsDto> GetDataProductsPaginates(int id, int start, int totalPage)
 	{
 		StringBuffer sqlGetDataByID = SqlProductsByID(id);
 		List<ProductsDto> listProductsByID =  _jdbcTemplate.query(sqlGetDataByID.toString(), new MapperProductsDto());
@@ -116,5 +116,26 @@ public class ProductsDao extends BaseDao {
 		
 		
 		return listProducts;
+	}
+
+	
+	public String SqlProductByID(long id)
+	{ 
+		StringBuffer  sql = SqlString();
+		sql.append("WHERE 1 = 1 ");
+		sql.append(" AND p.id = "+ id  + " ");
+		sql.append(" LIMIT 1 ");
+		return sql.toString();
+	}
+	public List<ProductsDto> GetDataProductByID(long id) {
+		String sql = SqlProductByID(id);
+		List<ProductsDto> listProduct=  _jdbcTemplate.query(sql, new MapperProductsDto());
+		return listProduct;
+	}
+	
+	public ProductsDto FindProductByID(long id) {
+		String sql = SqlProductByID(id);
+		ProductsDto Product=  _jdbcTemplate.queryForObject(sql, new MapperProductsDto());
+		return Product;
 	}
 }

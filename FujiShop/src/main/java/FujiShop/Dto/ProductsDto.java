@@ -14,10 +14,17 @@ public class ProductsDto {
 	private boolean sp_noibat;
 	private boolean sp_new;
 	private String ct_sp;
-	private long id_anh;
+	private long id_color;
 	private String img;
+	private String name_color;
 	private Date ngaytao_sp;
 	private Date ngaysua_sp;
+
+	public void setName_color(String name_color) {
+		this.name_color = name_color;
+	}
+
+
 	
 	public ProductsDto() {
 		super();
@@ -111,12 +118,12 @@ public class ProductsDto {
 		this.ct_sp = ct_sp;
 	}
 
-	public long getId_anh() {
-		return id_anh;
+	public long getId_color() {
+		return id_color;
 	}
 
-	public void setId_anh(long id_anh) {
-		this.id_anh = id_anh;
+	public void setId_color(long id_color) {
+		this.id_color = id_color;
 	}
 
 	public String getImg() {
@@ -141,6 +148,9 @@ public class ProductsDto {
 
 	public void setNgaysua_sp(Date ngaysua_sp) {
 		this.ngaysua_sp = ngaysua_sp;
+	}
+	public String getName_color() {
+		return name_color;
 	}
 
 }

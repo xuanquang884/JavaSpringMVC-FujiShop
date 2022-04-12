@@ -19,8 +19,9 @@ public class MapperProductsDto implements RowMapper<ProductsDto> {
 		sanpham.setSp_noibat(rs.getBoolean("sp_noibat"));
 		sanpham.setSp_new(rs.getBoolean("sp_new"));
 		sanpham.setCt_sp(rs.getString("ct_sp"));
-		sanpham.setId_anh(rs.getLong("id_anh"));
+		sanpham.setId_color(rs.getLong("id_color"));
 		sanpham.setImg(rs.getString("img"));
+		sanpham.setName_color(rs.getString("name_color"));
 		sanpham.setNgaytao_sp(rs.getDate("ngaytao_sp"));
 		sanpham.setNgaysua_sp(rs.getDate("ngaysua_sp"));
 		return sanpham;
